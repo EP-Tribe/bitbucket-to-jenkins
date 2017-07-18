@@ -212,8 +212,8 @@ def _getTargetVersion(webhook):
     if 'old' in webhook['push']['changes'][0]:
       version = webhook['push']['changes'][0]['old']['name']+'-'+webhook['push']['changes'][0]['new']['target']['hash'][:7]
   try:
-    delimiterPos = version.index('/')
-    if delimiterPos != -1:
+    delimiterPos = version.index('/') + 1
+    if delimiterPos != 0:
       version = version[delimiterPos:]
   except:
     version = version
