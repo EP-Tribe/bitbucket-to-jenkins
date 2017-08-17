@@ -4,34 +4,34 @@ An API oriented webserver used to manage links between bitbucket webhooks and je
 Availables endpoints are :
 
 	- GET /pipelines : return the list of available pipelines
-		- http://10.250.0.14:8081/pipelines
+		- http://jenkins-server.local/pipelines
 		
 	- GET /pipeline(URL:repo, URL:branch, URL:action) : return available pipeline for a given context
-		- http://10.250.0.14:8081/pipeline?repo=REPO_NAME&branch=BANCH_NAME&action=commit
+		- http://jenkins-server.local/pipeline?repo=REPO_NAME&branch=BANCH_NAME&action=commit
 	
 	- POST /pipeline(BODY:pipeline) : add a pipeline
-		-  http://10.250.0.14:8081/pipeline, data = { "repo": "REPO_NAME", "branch": "BANCH_NAME", "action": "commit", "job": "JOB_NAME", "parameters": { "param1": "value1" } }
+		-  http://jenkins-server.local/pipeline, data = { "repo": "REPO_NAME", "branch": "BANCH_NAME", "action": "commit", "job": "JOB_NAME", "parameters": { "param1": "value1" } }
 		
 	- DELETE /pipeline(URL:id) : delete a pipeline
-		- http://10.250.0.14:8081/pipeline?id=3
+		- http://jenkins-server.local/pipeline?id=3
 		
 	- GET /repositories : return the list of repositories available on bitbucket
-		- http://10.250.0.14:8081/repositories
+		- http://jenkins-server.local/repositories
 		
 	- GET /repositories/refresh : refresh reposirotry list from bitbucket API
-		- http://10.250.0.14:8081/repositories/refresh
+		- http://jenkins-server.local/repositories/refresh
 		
 	- GET /branches(URL:repo) : return the branch list of a given repository
-		- http://10.250.0.14:8081/branches?repo=REPO_NAME
+		- http://jenkins-server.local/branches?repo=REPO_NAME
 		
 	- GET /branches/refresh(URL:repo) : refresh the branch list of a given repository from bitbucket API
-		- http://10.250.0.14:8081/branches/refresh?repo=REPO_NAME
+		- http://jenkins-server.local/branches/refresh?repo=REPO_NAME
 	
 	- GET /jobs : return the list of available jobs on jenkins
-		- http://10.250.0.14:8081/jobs
+		- http://jenkins-server.local/jobs
 		
 	- GET /parameters(URL:job) : return the list of parameters available for a given job
-		- http://10.250.0.14:8081/parameters?job=JOB_NAME
+		- http://jenkins-server.local/parameters?job=JOB_NAME
 
 A pipeline is described as a following object :
 ```
