@@ -360,7 +360,7 @@ def index():
           if pipelineTriggered['job'] in availableJobs:
             pipelineReady = _populatePipeline(pipelineTriggered, webhook)
             _startJenkinsJob(jenkinsServer, pipelineReady)
-          return app.response_class('{ "OK": "pipeline "'+pipelineTriggered['id']+' started }', content_type='application/json'), 200
+          return app.response_class('{ "OK": "pipeline "'+str(pipelineTriggered['id'])+' started }', content_type='application/json'), 200
         else:
           print 'no pipeline to trigger on this action'
           return app.response_class('{ "OK": "no pipeline available for this webhook ('+repo+'-'+branch+'-'+action+')" }', content_type='application/json'), 200
